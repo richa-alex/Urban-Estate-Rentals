@@ -958,7 +958,7 @@ img {
 }
 
 .footer-brand .logo-img {
-    height: 100px;
+    height: 120px;
     margin-bottom: 16px;
 }
 
@@ -1199,7 +1199,7 @@ img {
     }
 
     .logo-img {
-        height: 70px;
+        height: 100px;
     }
 }
 
@@ -1219,7 +1219,7 @@ img {
     }
 
     .logo-img {
-        height: 55px;
+        height: 100px;
     }
 
     .whatsapp-float {
