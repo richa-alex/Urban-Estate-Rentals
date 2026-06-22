@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Urban Estate Rentals – Premium Real Estate in Kochi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,8 +14,7 @@
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <span class="logo-icon"><i class="fas fa-building"></i></span>
-                <span class="logo-text">Urban<span>Estate</span></span>
+              <img src="images/logo.png" alt="Urban Estate Rentals" class="logo-img" />
             </a>
             <nav class="nav-links" id="navLinks">
                 <ul>
@@ -37,21 +36,22 @@
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
         <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-badge">Kochi's Trusted Real Estate Partner</div>
-            <h1>Find Your Dream Property in Kochi</h1>
+            <h1 class="hero-main-heading">URBAN</h1>
+            <p class="hero-sub-heading">ESTATE-RENTALS</p>
             <p class="hero-sub">
-                Discover premium homes, luxury apartments, and prime commercial spaces.
-                <br />Buy, sell, or rent with confidence.
+                Discover premium homes, luxury apartments, and prime commercial spaces.<br />
+                Buy, sell, or rent with confidence.
             </p>
             <div class="hero-actions">
                 <a href="#properties" class="btn btn-primary btn-lg">
                     <i class="fas fa-search"></i> View Properties
                 </a>
                 <a href="#contact" class="btn btn-outline-light btn-lg">
-                    <i class="fas fa-phone-alt"></i> Contact Us
+                    <i class="fas fa-phone"></i> Contact Us
                 </a>
             </div>
             <div class="hero-stats">
@@ -69,17 +69,12 @@
                 </div>
             </div>
         </div>
-        <a href="#about" class="hero-scroll">
-            <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
-        </a>
     </section>
 
     <!-- ========== ABOUT US ========== -->
     <section class="about" id="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Us</span>
+            <div class="section-header reveal">
                 <h2>Your Trusted Partner in Kochi's Real Estate</h2>
                 <p class="section-sub">
                     With deep local expertise and a commitment to excellence, we help you find
@@ -87,7 +82,7 @@
                 </p>
             </div>
             <div class="about-grid">
-                <div class="about-content">
+                <div class="about-content reveal">
                     <div class="about-text">
                         <p>
                             <strong>Urban Estate Rentals</strong> has been at the forefront of
@@ -114,41 +109,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image reveal">
                     <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=500&fit=crop&auto=format" alt="Urban Estate Rentals team and properties" />
                     <div class="about-experience">
                         <span class="exp-number">10+</span>
                         <span class="exp-label">Years of Excellence</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Team -->
-            <div class="team-section">
-                <h3>Meet Our Leadership Team</h3>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&auto=format" alt="Founder" />
-                        </div>
-                        <h4>Rahul Menon</h4>
-                        <span>Founder & CEO</span>
-                        <p>15+ years in Kerala's luxury real estate market.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&auto=format" alt="Director" />
-                        </div>
-                        <h4>Priya Nair</h4>
-                        <span>Director of Sales</span>
-                        <p>Expert in premium residential & commercial properties.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&auto=format" alt="Operations" />
-                        </div>
-                        <h4>Arjun Krishnan</h4>
-                        <span>Head of Operations</span>
-                        <p>Streamlining property management and client services.</p>
                     </div>
                 </div>
             </div>
@@ -158,7 +123,7 @@
     <!-- ========== SERVICES ========== -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Our Services</span>
                 <h2>Comprehensive Real Estate Solutions</h2>
                 <p class="section-sub">
@@ -166,32 +131,32 @@
                 </p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-home"></i></div>
                     <h3>Property Sales</h3>
                     <p>Expert guidance for buying and selling residential & commercial properties in Kochi.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-key"></i></div>
                     <h3>Property Rentals</h3>
                     <p>Find the perfect rental home or tenant with our curated rental marketplace.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-building"></i></div>
                     <h3>Property Management</h3>
                     <p>Full-service management for landlords including maintenance, tenant relations, and more.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
                     <h3>Interior Design Assistance</h3>
                     <p>Connect with top interior designers to transform your property into a dream home.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Maintenance Services</h3>
                     <p>Reliable maintenance and repair services to keep your property in pristine condition.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-file-contract"></i></div>
                     <h3>Documentation & Government Assistance</h3>
                     <p>Navigate legal paperwork, registrations, and government approvals with ease.</p>
@@ -200,10 +165,10 @@
         </div>
     </section>
 
-    <!-- ========== WHY CHOOSE US ========== -->
+<!-- ========== WHY CHOOSE US ========== 
     <section class="why-choose">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Why Choose Us</span>
                 <h2>Built on Trust, Driven by Excellence</h2>
                 <p class="section-sub">
@@ -211,34 +176,34 @@
                 </p>
             </div>
             <div class="why-grid">
-                <div class="why-card">
+                <div class="why-card reveal">
                     <div class="why-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <h3>Local Market Expertise</h3>
                     <p>In-depth knowledge of Kochi's neighborhoods, trends, and investment opportunities.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card reveal">
                     <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Transparent Transactions</h3>
                     <p>Full disclosure, clear communication, and zero hidden fees at every step.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card reveal">
                     <div class="why-icon"><i class="fas fa-user-tie"></i></div>
                     <h3>Personalized Service</h3>
                     <p>Tailored solutions that match your unique needs, budget, and lifestyle.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card reveal">
                     <div class="why-icon"><i class="fas fa-handshake"></i></div>
                     <h3>End-to-End Support</h3>
                     <p>From first consultation to final paperwork, we're with you every step of the way.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- ========== PROPERTIES ========== -->
     <section class="properties" id="properties">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Featured Properties</span>
                 <h2>Handpicked Homes in Kochi</h2>
                 <p class="section-sub">
@@ -246,8 +211,7 @@
                 </p>
             </div>
 
-            <!-- Search & Filter -->
-            <div class="filter-bar">
+            <div class="filter-bar reveal">
                 <div class="filter-group">
                     <input type="text" id="searchInput" placeholder="Search by location, name..." />
                     <i class="fas fa-search filter-search-icon"></i>
@@ -272,19 +236,18 @@
             </div>
 
             <div class="property-grid" id="propertyGrid">
-                <!-- Cards will be injected by JS -->
+                <!-- Injected by JS -->
             </div>
 
-            <div class="properties-cta">
+            <div class="properties-cta reveal">
                 <a href="#contact" class="btn btn-primary">View All Properties <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
-
-    <!-- ========== TESTIMONIALS ========== -->
+<!-- ========== TESTIMONIALS ==========
     <section class="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Testimonials</span>
                 <h2>What Our Clients Say</h2>
                 <p class="section-sub">
@@ -292,14 +255,13 @@
                 </p>
             </div>
             <div class="testimonial-grid" id="testimonialGrid">
-                <!-- Injected by JS -->
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ========== CONTACT CTA ========== -->
     <section class="cta-section">
-        <div class="container cta-container">
+        <div class="container cta-container reveal">
             <div class="cta-content">
                 <h2>Ready to Find Your Dream Property?</h2>
                 <p>
@@ -310,7 +272,7 @@
                         <i class="fas fa-envelope"></i> Get in Touch
                     </a>
                     <a href="tel:+919999888777" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-phone-alt"></i> Call Now
+                        <i class="fas fa-phone"></i> Call Now
                     </a>
                 </div>
             </div>
@@ -320,7 +282,7 @@
     <!-- ========== CONTACT PAGE ========== -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Contact Us</span>
                 <h2>We'd Love to Hear From You</h2>
                 <p class="section-sub">
@@ -328,7 +290,7 @@
                 </p>
             </div>
             <div class="contact-grid">
-                <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper reveal">
                     <form id="contactForm" class="contact-form">
                         <div class="form-row">
                             <div class="form-group">
@@ -363,30 +325,27 @@
                         </button>
                     </form>
                 </div>
-                <div class="contact-info">
+                <div class="contact-info reveal">
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Visit Us</h4>
-                                <p>Urban Estate Rentals, MG Road,<br />Kochi, Kerala – 682001</p>
+                                <p>Urban Estate Rentals, Infopark Kakkanad,<br />Kochi, Kerala – 682001</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone-alt"></i>
                             <div>
                                 <h4>Call Us</h4>
-                                <p><a href="tel:+919999888777">+91 9999 888 777</a></p>
-                                <p><a href="tel:+914842345678">+91 484 234 5678</a></p>
+                                <p><a href="tel:+919999888777">+91 759192000</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email Us</h4>
-                                <p><a href="mailto:info@urbanestate.in">info@urbanestate.in</a></p>
-                                <p><a href="mailto:sales@urbanestate.in">sales@urbanestate.in</a></p>
-                            </div>
+                                <p><a href="mailto:info@urbanestate.in">info@urbanestate.in</a></p>                            </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
@@ -397,7 +356,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Social Links -->
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -405,7 +363,6 @@
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
-                    <!-- Map -->
                     <div class="map-container">
                         <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.771163076444!2d76.279408!3d9.931233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873f3c7b8c2d7%3A0x5c8b9c8b9c8b9c8b!2sKochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -420,7 +377,7 @@
 
 <!-- ========== NEWSLETTER ========== -->
 <section class="newsletter">
-    <div class="container newsletter-container">
+    <div class="container newsletter-container reveal">
         <div class="newsletter-content">
             <h3>Stay in the Loop</h3>
             <p>Subscribe to receive the latest property listings, market insights, and exclusive offers.</p>
@@ -440,7 +397,10 @@
             <div class="footer-brand">
                 <a href="#" class="logo">
                     <span class="logo-icon"><i class="fas fa-building"></i></span>
-                    <span class="logo-text">Urban<span>Estate</span></span>
+                    <span class="logo-text">
+                        <span class="logo-main">urban</span>
+                        <span class="logo-sub">estate‑rentals</span>
+                    </span>
                 </a>
                 <p>
                     Premium real estate services in Kochi, Kerala.
@@ -482,7 +442,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Urban Estate Rentals. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart" style="color:#d43f3f;"></i> in Kochi</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#c9a84c;"></i> in Kochi</p>
         </div>
     </div>
 </footer>

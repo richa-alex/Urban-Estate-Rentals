@@ -105,12 +105,12 @@ function renderProperties(filterType = 'all', searchTerm = '', priceFilter = 'al
     });
 
     if (filtered.length === 0) {
-        grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:#5a6a7a; padding:40px;">No properties match your criteria.</p>`;
+        grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:40px;">No properties match your criteria.</p>`;
         return;
     }
 
     grid.innerHTML = filtered.map(p => `
-        <div class="property-card">
+        <div class="property-card reveal">
             <div class="property-image">
                 <img src="${p.image}" alt="${p.title}" loading="lazy" />
             </div>
@@ -127,6 +127,9 @@ function renderProperties(filterType = 'all', searchTerm = '', priceFilter = 'al
             </div>
         </div>
     `).join('');
+
+    // Re‑observe new cards
+    observeReveals();
 }
 
 function parsePrice(priceStr) {
@@ -140,7 +143,7 @@ function parsePrice(priceStr) {
 function renderTestimonials() {
     const grid = document.getElementById('testimonialGrid');
     grid.innerHTML = testimonials.map(t => `
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <p>"${t.text}"</p>
             <div class="testimonial-author">
@@ -152,6 +155,23 @@ function renderTestimonials() {
             </div>
         </div>
     `).join('');
+    observeReveals();
+}
+
+// ========== SCROLL REVEAL (Intersection Observer) ==========
+function observeReveals() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+    });
+    reveals.forEach(el => observer.observe(el));
 }
 
 // ========== FILTER EVENT LISTENERS ==========
@@ -187,7 +207,6 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
 });
 
-// Close on link click (mobile)
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -259,3 +278,6 @@ document.getElementById('newsletterForm').addEventListener('submit', (e) => {
 // ========== INITIAL RENDER ==========
 renderProperties();
 renderTestimonials();
+
+// Observe initial reveals
+setTimeout(observeReveals, 100);
