@@ -56,7 +56,7 @@ img {
     padding: 0 24px;
 }
 
-/* ---------- BUTTONS (gradient & glow) ---------- */
+/* ---------- BUTTONS ---------- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -123,15 +123,16 @@ img {
 
 .btn-outline {
     background: transparent;
-    color: var(--text-dark);
-    border-color: #ffffff;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-outline:hover {
-    background: var(--text-dark);
-    color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
 }
 
 .btn-outline-light {
@@ -184,7 +185,7 @@ img {
     margin: 0 auto;
 }
 
-/* ---------- REVEAL ANIMATIONS (intersection observer) ---------- */
+/* ---------- REVEAL ANIMATIONS ---------- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -196,7 +197,7 @@ img {
     transform: translateY(0);
 }
 
-/* ---------- NAVBAR (glass‑morphism on scroll) ---------- */
+/* ---------- NAVBAR ---------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -209,32 +210,27 @@ img {
 }
 
 .navbar.scrolled {
-    background: #0f1a2a;
+    background: rgba(15, 26, 42, 0.92);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    box-shadow: 0 4px 30px rgba(209, 204, 204, 0.04);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
     padding: 10px 0;
-}
-
-.navbar.scrolled .nav-links a {
-    color: #ffffff;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 0px;
 }
 
-/* ---------- LOGO (modern two-line) ---------- */
+/* ---------- LOGO ---------- */
 .logo-img {
-    height: 100px;           /* adjust as needed */
+    height: 80px;          /* increased from 48px */
     width: auto;
     display: block;
-    padding-left: 0px;
 }
 
+/* ---------- NAV LINKS ---------- */
 .nav-links ul {
     display: flex;
     gap: 36px;
@@ -270,11 +266,7 @@ img {
     gap: 16px;
 }
 
-.btn-sm{
-        color: #b4b2ae;
-}
-
-
+/* ---------- HAMBURGER ---------- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -282,18 +274,23 @@ img {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
 }
 
 .hamburger span {
     width: 26px;
     height: 2.5px;
-    background: var(--text-dark);
+    background: #ffffff;
     border-radius: 4px;
     transition: 0.3s;
 }
 
-/* ---------- HERO (animated gradient, left‑aligned) ---------- */
+/* Scrolled state: hamburger stays white on dark background */
+.navbar.scrolled .hamburger span {
+    background: #ffffff;
+}
+
+/* ---------- HERO ---------- */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -334,7 +331,7 @@ img {
 .hero-content {
     max-width: 700px;
     text-align: left;
-    padding: 140px 20px 60px 80px;
+    padding: 140px 20px 60px 40px;
     margin-left: 0;
 }
 
@@ -371,7 +368,6 @@ img {
     letter-spacing: 1px;
     opacity: 0.9;
     margin-bottom: 24px;
-    padding-right: 0px;
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -516,74 +512,6 @@ img {
     font-weight: 500;
 }
 
-/* ---------- TEAM ---------- */
-.team-section {
-    margin-top: 80px;
-}
-
-.team-section h3 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 340px;
-    margin: 0 auto;
-}
-
-.team-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 36px 24px;
-    text-align: center;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-medium);
-}
-
-.team-img {
-    width: 112px;
-    height: 112px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 16px;
-    border: 3px solid var(--gold);
-    padding: 3px;
-}
-
-.team-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.team-card h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.team-card span {
-    font-size: 0.85rem;
-    color: var(--gold);
-    font-weight: 600;
-}
-
-.team-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: 8px;
-}
-
 /* ---------- SERVICES ---------- */
 .services {
     padding: 120px 0;
@@ -642,50 +570,6 @@ img {
 }
 
 .service-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* ---------- WHY CHOOSE ---------- */
-.why-choose {
-    padding: 120px 0;
-    background: var(--off-white);
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 32px;
-}
-
-.why-card {
-    text-align: center;
-    padding: 40px 24px;
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    transition: var(--transition);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.why-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-medium);
-}
-
-.why-icon {
-    font-size: 2.6rem;
-    color: var(--gold);
-    margin-bottom: 16px;
-}
-
-.why-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.why-card p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
@@ -825,72 +709,6 @@ img {
 
 .properties-cta {
     text-align: center;
-}
-
-/* ---------- TESTIMONIALS ---------- */
-.testimonials {
-    padding: 120px 0;
-    background: var(--off-white);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-}
-
-.testimonial-card {
-    background: var(--white);
-    padding: 36px 32px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
-}
-
-.testimonial-card .stars {
-    color: var(--gold);
-    margin-bottom: 14px;
-    font-size: 1rem;
-    letter-spacing: 2px;
-}
-
-.testimonial-card p {
-    font-style: italic;
-    color: var(--text-dark);
-    margin-bottom: 18px;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.testimonial-author img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--gold);
-}
-
-.testimonial-author strong {
-    font-size: 0.95rem;
-    display: block;
-    font-weight: 700;
-}
-
-.testimonial-author span {
-    font-size: 0.8rem;
-    color: var(--text-muted);
 }
 
 /* ---------- CTA SECTION ---------- */
@@ -1139,8 +957,8 @@ img {
     margin-bottom: 40px;
 }
 
-.footer-brand .logo {
-    color: var(--white);
+.footer-brand .logo-img {
+    height: 60px;
     margin-bottom: 16px;
 }
 
@@ -1226,7 +1044,7 @@ img {
     opacity: 0.5;
 }
 
-/* ---------- WHATSAPP FLOAT (glassmorphism) ---------- */
+/* ---------- WHATSAPP FLOAT ---------- */
 .whatsapp-float {
     position: fixed;
     bottom: 28px;
@@ -1256,7 +1074,7 @@ img {
     background: rgba(15, 26, 42, 0.9);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    color: #fff;
+    color: #ffffff;
     padding: 8px 18px;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -1308,8 +1126,24 @@ img {
         gap: 14px;
     }
 
+    .nav-links a {
+        color: var(--text-dark);
+    }
+
     .hamburger {
         display: flex;
+    }
+
+    .hamburger span {
+        background: #ffffff;
+    }
+
+    .navbar.scrolled .hamburger span {
+        background: #ffffff;
+    }
+
+    .hero-content {
+        padding: 120px 20px 40px 20px;
     }
 
     .hero-main-heading {
@@ -1364,8 +1198,8 @@ img {
         flex-direction: column;
     }
 
-    .hero-content {
-        padding: 120px 0 40px;
+    .logo-img {
+        height: 60px;
     }
 }
 
@@ -1382,5 +1216,21 @@ img {
     }
     .contact-form-wrapper {
         padding: 24px;
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
     }
 }

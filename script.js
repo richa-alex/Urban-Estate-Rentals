@@ -80,7 +80,7 @@ const testimonials = [
         name: 'Vikram Menon',
         role: 'Landlord',
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format',
-        text: 'I’ve been using their property management services for 3 years. They handle everything professionally and keep my tenants happy.'
+        text: 'I\'ve been using their property management services for 3 years. They handle everything professionally and keep my tenants happy.'
     },
     {
         name: 'Sneha Nair',
@@ -128,7 +128,6 @@ function renderProperties(filterType = 'all', searchTerm = '', priceFilter = 'al
         </div>
     `).join('');
 
-    // Re‑observe new cards
     observeReveals();
 }
 
@@ -142,6 +141,7 @@ function parsePrice(priceStr) {
 // ========== RENDER TESTIMONIALS ==========
 function renderTestimonials() {
     const grid = document.getElementById('testimonialGrid');
+    if (!grid) return;
     grid.innerHTML = testimonials.map(t => `
         <div class="testimonial-card reveal">
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -158,9 +158,9 @@ function renderTestimonials() {
     observeReveals();
 }
 
-// ========== SCROLL REVEAL (Intersection Observer) ==========
+// ========== SCROLL REVEAL ==========
 function observeReveals() {
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal:not(.visible)');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -175,43 +175,43 @@ function observeReveals() {
 }
 
 // ========== FILTER EVENT LISTENERS ==========
-document.getElementById('searchInput').addEventListener('input', (e) => {
-    renderProperties(
-        document.getElementById('filterType').value,
-        e.target.value,
-        document.getElementById('filterPrice').value
-    );
-});
+const searchInput = document.getElementById('searchInput');
+const filterType = document.getElementById('filterType');
+const filterPrice = document.getElementById('filterPrice');
 
-document.getElementById('filterType').addEventListener('change', (e) => {
-    renderProperties(
-        e.target.value,
-        document.getElementById('searchInput').value,
-        document.getElementById('filterPrice').value
-    );
-});
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        renderProperties(filterType.value, e.target.value, filterPrice.value);
+    });
+}
 
-document.getElementById('filterPrice').addEventListener('change', (e) => {
-    renderProperties(
-        document.getElementById('filterType').value,
-        document.getElementById('searchInput').value,
-        e.target.value
-    );
-});
+if (filterType) {
+    filterType.addEventListener('change', (e) => {
+        renderProperties(e.target.value, searchInput.value, filterPrice.value);
+    });
+}
+
+if (filterPrice) {
+    filterPrice.addEventListener('change', (e) => {
+        renderProperties(filterType.value, searchInput.value, e.target.value);
+    });
+}
 
 // ========== HAMBURGER MENU ==========
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
     });
-});
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+    });
+}
 
 // ========== STICKY NAVBAR ==========
 const navbar = document.getElementById('navbar');
@@ -250,34 +250,40 @@ const counterObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(el => counterObserver.observe(el));
 
 // ========== CONTACT FORM ==========
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const msg = document.getElementById('message').value.trim();
-    if (name && email && msg) {
-        alert(`Thank you, ${name}! Your inquiry has been sent. We'll get back to you shortly.`);
-        e.target.reset();
-    } else {
-        alert('Please fill in all required fields.');
-    }
-});
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if (name && email && msg) {
+            alert(`Thank you, ${name}! Your inquiry has been sent. We'll get back to you shortly.`);
+            contactForm.reset();
+        } else {
+            alert('Please fill in all required fields.');
+        }
+    });
+}
 
 // ========== NEWSLETTER FORM ==========
-document.getElementById('newsletterForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = e.target.querySelector('input[type="email"]');
-    if (input.value.trim()) {
-        alert(`Thanks for subscribing! We'll keep you updated.`);
-        input.value = '';
-    } else {
-        alert('Please enter a valid email address.');
-    }
-});
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input[type="email"]');
+        if (input.value.trim()) {
+            alert('Thanks for subscribing! We\'ll keep you updated.');
+            input.value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+}
 
 // ========== INITIAL RENDER ==========
 renderProperties();
 renderTestimonials();
 
-// Observe initial reveals
-setTimeout(observeReveals, 100);
+// Observe initial reveals after a small delay
+setTimeout(observeReveals, 150);
